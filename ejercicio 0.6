@@ -1,0 +1,27 @@
+```mermaid
+
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->>browser: documento HTML
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->>browser: archivo CSS
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->>browser: archivo JS
+
+Note right of browser: El navegador comienza a ejecutar el código JavaScript que recupera el JSON del servidor.
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->>browser: [{content: "Ykä", date: "2024-03-25T12:06:09.772Z"},…]
+
+Note right of browser: Escribimos en el campo de texto y apretamos en el botón "Save".
+
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+Note right of browser: Realizamos la petición POST para agregar la nueva nota y se actualiza el contenido de manera que el navegador no se refresca completamente para poder mostrarla.
+
+```

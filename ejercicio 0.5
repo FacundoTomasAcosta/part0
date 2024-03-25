@@ -1,0 +1,21 @@
+```mermaid
+
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->>browser: documento HTML
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->>browser: archivo CSS
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->>browser: archivo JS
+
+Note right of browser: El navegador comienza a ejecutar el código JavaScript que recupera el JSON del servidor.
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->>browser: [{content: "asd", date: "2024-03-25T11:41:39.006Z"},…]
+
+```
